@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>{{ type }} a book</h2>
+    <div class="siimple-form">
+        <div class="siimple-form-detail">Fill the form to add a new book!</div>
+            <form method="post">{% csrf_token %}
+                {{ form.as_p }}
+            <div class="siimple-form-field ">
+                <input class="siimple-btn siimple-btn--blue siimple-btn--big siimple-btn--fluid" type="submit" value="Submit" />
+            </div>
+        </form>
+    </div>
+{% endblock %}

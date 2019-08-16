@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="siimple-btn siimple-btn--fluid siimple-btn--big">
+        <a class="siimple-link" href="{% url 'books_crud:book_new' %}">
+            Add a new book
+        </a>
+    </div>
+    <ul>
+        {% for book in books %}
+            <div class="siimple-list" style="max-width:80%;">
+                <div class="siimple-list-item">
+                    {{ book.name }}  ({{ book.pages }} Pages)
+                    <div class="siimple-btn-group siimple--float-right">
+                        <div class="siimple-btn siimple-btn--primary">
+                            <a class="siimple--color-white" style="text-decoration: none;" href="{% url 'books_crud:book_edit' book.id %}">Edit</a>
+                        </div>
+                        <div class="siimple-btn siimple-btn--error">
+                            <a class="siimple--color-white" style="text-decoration: none;" href="{% url 'books_crud:book_delete' book.id %}">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </ul>
+{% endblock %}
